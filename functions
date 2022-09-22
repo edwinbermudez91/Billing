@@ -1,0 +1,37 @@
+#!/bin/bash
+crearArchivo(){
+    touch file-$1.txt
+}
+crearArchivo "1"
+crearArchivo "2"
+
+
+#!/bin/bash
+requesthost(){
+    ping -c4 $1 
+}
+requesthost "www.google.com"
+
+#!/bin/bash
+read HOST
+requesthost(){
+    ping -c4 $1 
+}
+requesthost $HOST
+
+curl https://restcountries.com/v3.1/name/aruba?fullText=true
+
+cat > validationPort.sh << EOF
+#!/bin/bash
+validationport(){
+    echo "$1"
+    nc 127.0.0.1 $1
+}
+
+validationport  "6443"
+validationport  "2379"
+validationport  "2380"
+validationport  "10250"
+validationport  "10257"
+validationport  "10259"
+EOF
